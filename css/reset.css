@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* reset */
+html {overflow-y:scroll; font-size:62.5%; letter-spacing: -0.02em;}
+body {margin:0;padding:0;height:100%;font-family:'Pretendard',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif;}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
+header ul, nav ul, footer ul {margin:0;padding:0;list-style:none}
+label, input, button, select,img{vertical-align:middle}
+input, button {margin:0;padding:0;}
+button,input[type=submit]{outline:none;font-family:'Pretendard',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif;cursor:pointer}
+input[type=text], input[type=password], input[type=submit], input[type=image], input[type=button], button {border-radius:0;-webkit-appearance:none;}
+textarea, select {font-family:'Pretendard',Dotum,Helvetica,AppleGothic,Gulim,'Roboto','굴림',Sans-serif;}
+textarea {border-radius:0;-webkit-appearance:none}
+p {margin:0;padding:0;word-break:keep-all;}
+pre {overflow-x:scroll;}
+a:link, a:visited {text-decoration:none}
+ul,li,ol,dt,dd,dl{margin:0;padding:0;list-style:none;}
+
+button:focus, input:focus, textarea:focus, select:focus {outline:0;}
+
+table{padding:0; border:0; border-spacing:0px; border-collapse:collapse;}
+img {max-width:100%;}
+
+* {
+	white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	word-break: keep-all; /* 전체 단어단위로 잘리도록 적용 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	box-sizing:border-box;
+}
+*, :after, :before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+input[type=text],input[type=password], textarea {
+	outline: none;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+}
+
+input[type=text]:focus,input[type=password]:focus,  textarea:focus,select:focus {
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+}
+
+@media all and (max-width:1240px) {
+	html {
+		font-size: 55%;
+	}
+}
+@media all and (max-width:768px) {
+	html {
+		font-size: 53%;
+	}
+}
