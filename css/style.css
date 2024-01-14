@@ -4,6 +4,7 @@
     --lightblack: #333;
     --gray: #666;
     --lightgray: #eee;
+    --backgroundgray: #f9f9f9;
     --point_color: #2367ff;
     --normal_font: 2rem;
 }
@@ -324,7 +325,7 @@ body.no_scroll {
 /* WORKS */
 #works {
     padding: 12rem 0;
-    background-color:#f9f9f9;
+    background-color:var(--backgroundgray);
 }
 .works_cate {
     display: flex;
@@ -407,6 +408,8 @@ body.no_scroll {
 /* CONTACT */
 #contact {
     padding: 20rem 0;
+    overflow: hidden;
+    position: relative;
     text-align: center;
 }
 #contact a {
@@ -419,6 +422,30 @@ body.no_scroll {
 #contact p {
     line-height: 1.8;
 }
+#contact .bg_text {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: -1;
+    transform: translateY(-50%);
+}
+#contact .marquee {
+    margin-left: 2rem;
+    font-size: 25rem;
+    font-weight: 800;
+    color: var(--backgroundgray);
+    white-space: nowrap;
+    animation: marquee 50000ms linear infinite;
+    animation-play-state: paused;
+}
+#contact .bg_text.active .marquee {
+    animation-play-state: running;
+}
+@keyframes marquee {
+    from {transform: translateX(0);}
+    to {transform: translateX(-100%);}
+  }
 
 
 /* FOOTER */
@@ -451,6 +478,9 @@ footer .copyright {
     }
     #contact a {
         font-size: 4rem;
+    }
+    #contact .marquee {
+        font-size: 18rem;
     }
 }
 @media all and (max-width:768px) {
@@ -495,5 +525,8 @@ footer .copyright {
     }
     #contact a {
         font-size: 3.2rem;
+    }
+    #contact .marquee {
+        font-size: 12rem;
     }
 }

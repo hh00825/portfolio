@@ -59,6 +59,15 @@ mvTl.to("#main_haejin .text_01",{
 	clipPath: "circle(3% at 50% 50%)"
 })
 
+//contact gsap
+gsap.to("#contact .bg_text",{
+	scrollTrigger: {
+		trigger: "#contact .bg_text",
+		start: "top 80%",
+		toggleClass:"active"
+	}
+})
+
 // works catecory tab
 $(".works_cate").each(function(i) {
 	$(".works_cate > button").on( "click", function() {
