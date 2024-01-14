@@ -86,6 +86,7 @@ body.no_scroll {
     display: flex;
     justify-content: space-between;
     padding: 2rem 3%;
+    border: 1px solid var(--lightgray);
     position: fixed;
     top: 0;
     z-index: 1;
@@ -93,7 +94,6 @@ body.no_scroll {
     background: rgba( var(--white), 0.25 );
     backdrop-filter: blur( 0.4rem );
     -webkit-backdrop-filter: blur( 0.4rem );
-    border: 1px solid var(--lightgray);
 }
 #header .logo {
     font-size: 2.4rem;
@@ -283,10 +283,10 @@ body.no_scroll {
 .about_cont ul li .title::before {
     display: inline-block;
     position: absolute;
-    top: 0.3rem;
+    top: 0.4rem;
     left: -1.2rem;
     width: 0.3rem;
-    height: 2rem;
+    height: 1.9rem;
     background-color: var(--black);
     content: "";
 }
@@ -315,6 +315,7 @@ body.no_scroll {
     margin-right: 1rem;
     padding: 0.5rem 1rem;
     border: 0.1rem solid var(--black);
+    font-size: 1.8rem;
     line-height: 1;
     border-radius: 0.8rem;
 }
@@ -389,14 +390,18 @@ body.no_scroll {
 }
 .works_list .title {
     display: block;
+    margin-bottom: 1rem;
     font-size: 2.2rem;
     font-weight: 600;
 }
 .works_list .hash {
     display: block;
-    margin-top: 1rem;
+    margin-bottom: 0.4rem;
     font-size: 1.8rem;
     color: var(--gray);
+}
+.works_list .hash:last-child {
+    margin-bottom: 0;
 }
 
 /* CONTACT */
