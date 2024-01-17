@@ -14,25 +14,29 @@ requestAnimationFrame(raf)
 
 //intro timeline
 const introTl = gsap.timeline();
-introTl.to(".intro_title .tit_holder",{
-	onStart: function(){
-		document.querySelector(".intro_title").classList.add("active");
-	}
-})
-.to("#intro .circle_01",{
-	width: "200vw",
-	height: "200vw",
-	duration: 1.5,
-},"=+1.5")
-.to("#intro .circle_02",{
-	width: "200vw",
-	height: "200vw",
-	duration: 1.8,
-	onComplete: function(){
-		document.querySelector("#intro").classList.add("out");
-		document.body.classList.remove("no_scroll");
-	}
-},"<0.35")
+window.addEventListener('load', () => {
+	introTl.to(".intro_title .tit_holder",{
+		onStart: function(){
+			document.querySelector(".intro_title").classList.add("active");
+		}
+	})
+	.to("#intro .circle_01",{
+		clipPath: "circle(100% at 50% 50%)",
+		duration: 1.5,
+	},"=+1.8")
+	.to("#intro .circle_02",{
+		clipPath: "circle(100% at 50% 50%)",
+		duration: 1.8,
+		onStart: function(){
+			setTimeout(() => {
+				document.querySelector("#intro").classList.add("out");
+			}, 1400);
+		},
+		onComplete: function(){
+			document.body.classList.remove("no_scroll");
+		}
+	},"<0.45")
+});
 
 //main haejin timeline
 const mvTl = gsap.timeline({
