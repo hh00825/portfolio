@@ -79,17 +79,17 @@ $(".works_cate").each(function(i) {
 $(".works_cate > button").on("click",function(){
 	var thisFilter = $(this).data("filter");
 	
-	$(".works_list > div").addClass("aos-animate");
+	$(".works_list .item").addClass("aos-animate");
 
 	if(thisFilter == "all"){
 		$(".works_cate > button").removeClass("current");
 		$(this).addClass("current");
-		$(".works_list").children("div").removeClass("hide");
+		$(".works_list .item").removeClass("hide");
 	}else{
 		$(".works_cate > button").removeClass("current");
 		$(this).addClass("current");
 
-		$(".works_list").children("div").addClass("hide");
-		$(".works_list").children("div."+thisFilter).removeClass("hide");
+		$(".works_list .item").addClass("hide");
+		$(".works_list .item."+thisFilter).removeClass("hide");
 	}
 });
