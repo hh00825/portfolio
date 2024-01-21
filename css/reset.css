@@ -48,6 +48,18 @@ input[type=text]:focus,input[type=password]:focus,  textarea:focus,select:focus 
     -moz-box-shadow:none;
     box-shadow:none;
 }
+.sound_only {
+	display: inline-block !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	overflow: hidden !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 0;
+	line-height: 0;
+}
 
 @media all and (max-width:1240px) {
 	html {
