@@ -73,27 +73,45 @@ gsap.to("#contact .bg_text",{
 })
 
 // works catecory tab
-$(".works_cate").each(function(i) {
-	$(".works_cate > button").on( "click", function() {
-		$(".works_cate > button").find(".current").removeClass("current");
-		$(this).addClass("current");
-	});
-});
+const worksBtn = $(".works_cate > button");
+const worksItem = $(".works_list .item");
+worksBtn.on( "click", function() {
+	worksBtn.find(".current").removeClass("current");
+	$(this).addClass("current");
 
-$(".works_cate > button").on("click",function(){
 	var thisFilter = $(this).data("filter");
-	
-	$(".works_list .item").addClass("aos-animate");
 
 	if(thisFilter == "all"){
-		$(".works_cate > button").removeClass("current");
+		worksBtn.removeClass("current");
 		$(this).addClass("current");
-		$(".works_list .item").removeClass("hide");
+		worksItem.removeClass("hide");
 	}else{
-		$(".works_cate > button").removeClass("current");
+		worksBtn.removeClass("current");
 		$(this).addClass("current");
 
-		$(".works_list .item").addClass("hide");
+		worksItem.addClass("hide");
 		$(".works_list .item."+thisFilter).removeClass("hide");
 	}
 });
+
+onElementHeightChange(document.body, function(){
+	AOS.refresh();
+	ScrollTrigger.refresh();
+});
+  
+function onElementHeightChange(elm, callback) {
+	var lastHeight = elm.clientHeight
+	var newHeight;
+
+	(function run() {
+		newHeight = elm.clientHeight;      
+		if (lastHeight !== newHeight) callback();
+		lastHeight = newHeight;
+
+		if (elm.onElementHeightChangeTimer) {
+			clearTimeout(elm.onElementHeightChangeTimer); 
+		}
+
+		elm.onElementHeightChangeTimer = setTimeout(run, 200);
+	})();
+}
