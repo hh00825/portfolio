@@ -4,20 +4,25 @@ AOS.init({
 });
 gsap.registerPlugin(ScrollTrigger);
 
+
 //smooth scroll
-const lenis = new Lenis()
+const lenis = new Lenis();
 function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
+	lenis.raf(time)
+	requestAnimationFrame(raf);
 }
-requestAnimationFrame(raf)
+requestAnimationFrame(raf);
+
 
 //intro timeline
 const introTl = gsap.timeline();
 window.addEventListener('load', () => {
+	const introElement = document.querySelector("#intro");
+	const introTitle = document.querySelector(".intro_title");
+
 	introTl.to(".intro_title .tit_holder",{
 		onStart: function(){
-			document.querySelector(".intro_title").classList.add("active");
+			introTitle.classList.add("active");
 		}
 	})
 	.to("#intro .circle_01",{
@@ -72,36 +77,40 @@ gsap.to("#contact .bg_text",{
 	}
 })
 
+
 // works catecory tab
-const worksBtn = $(".works_cate > button");
-const worksItem = $(".works_list .item");
-worksBtn.on( "click", function() {
-	worksBtn.find(".current").removeClass("current");
-	$(this).addClass("current");
+function tabFnc(){
+	const worksBtns = document.querySelectorAll(".works_cate > button");
+	const worksItems = document.querySelectorAll(".works_list .item");
 
-	var thisFilter = $(this).data("filter");
+	worksBtns.forEach(worksBtn => {
+		worksBtn.addEventListener("click", () => {			
+			const filterValue = worksBtn.dataset.filter;
+			
+			worksBtns.forEach(btn => btn.classList.remove("current"));
+			worksBtn.classList.add("current");
 
-	if(thisFilter == "all"){
-		worksBtn.removeClass("current");
-		$(this).addClass("current");
-		worksItem.removeClass("hide");
-	}else{
-		worksBtn.removeClass("current");
-		$(this).addClass("current");
+			worksItems.forEach(worksItem => {
+				if(filterValue === "all" || worksItem.classList.contains(filterValue)){
+					worksItem.classList.remove("hide");
+				}else{
+					worksItem.classList.add("hide");
+				}
+			});
+		});
+	});
+}
+tabFnc();
 
-		worksItem.addClass("hide");
-		$(".works_list .item."+thisFilter).removeClass("hide");
-	}
-});
 
 onElementHeightChange(document.body, function(){
 	AOS.refresh();
 	ScrollTrigger.refresh();
 });
-  
+
 function onElementHeightChange(elm, callback) {
-	var lastHeight = elm.clientHeight
-	var newHeight;
+	let lastHeight = elm.clientHeight
+	let newHeight;
 
 	(function run() {
 		newHeight = elm.clientHeight;      
